@@ -1,23 +1,27 @@
 package personal.projects;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Address {
-    private Country placeToPracticeHobby;
+    private String placeToPracticeHobby;
+    private Country country;
 
 
-    public Address(Country placeToPracticeHobby) {
+    public Address(String placeToPracticeHobby, Country country) {
         this.placeToPracticeHobby = placeToPracticeHobby;
+        this.country = country;
     }
 
-    public Country getPlaceToPracticeHobby() {
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getPlaceToPracticeHobby() {
         return placeToPracticeHobby;
-    }
-
-    public void setPlaceToPracticeHobby(Country placeToPracticeHobby) {
-        this.placeToPracticeHobby = placeToPracticeHobby;
     }
 
     @Override
@@ -25,13 +29,13 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return Objects.equals(placeToPracticeHobby, address.placeToPracticeHobby);
+        return Objects.equals(country, address.country);
     }
 
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(placeToPracticeHobby);
+        return Objects.hash(country);
     }
 }

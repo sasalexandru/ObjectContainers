@@ -29,9 +29,9 @@ public class Main {
         Country romania = new Country("Romania");
         Country switzerland = new Country ("Switzerland");
         Country italy = new Country ("Italy");
-        Address address = new Address(romania);
-        Address address1 = new Address(switzerland);
-        Address address2 = new Address(italy);
+        Address address = new Address( "Apuseni" , romania);
+        Address address1 = new Address( "Alps", switzerland);
+        Address address2 = new Address("Florence" , italy);
 
         Hobby snowboarding = new Hobby("Snowboarding", 1);
         snowboarding.addAddress(address1);
@@ -59,12 +59,17 @@ public class Main {
         List<Hobby> hobbies = peopleHobbies.get(person);
         for (Hobby hobby : hobbies) {
             Set<String> placeToPracticeHobby = new HashSet<>();
+            Set<String> countryName = new HashSet<>();
             List<Address> addresses = hobby.getAddresses();
             for (Address address : addresses) {
-                placeToPracticeHobby.add(address.getPlaceToPracticeHobby().getName());
+                countryName.add(address.getCountry().getName());
+                placeToPracticeHobby.add(address.getPlaceToPracticeHobby());
             }
-            System.out.println("Hobby name:" + hobby.getName() + ", place to practice hobby: " +
-                    placeToPracticeHobby);
+            for(String country : countryName) {
+
+                System.out.println("Hobby name:" + hobby.getName() + ", place to practice hobby: " +
+                        placeToPracticeHobby + " and the country is: " +country);
+            }
         }
     }
 
